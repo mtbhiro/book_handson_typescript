@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var Utility_1 = require("../Utility/Utility");
-var jankenOptions = ['rock', 'paper', 'scissors'];
+var jankenOptions = ["rock", "paper", "scissors"];
 var Janken = /** @class */ (function () {
     function Janken() {
         this.rounds = 0;
@@ -55,7 +55,7 @@ var Janken = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _a = Number;
-                        return [4 /*yield*/, (0, Utility_1.promptInput)('何本勝負にしますか？')];
+                        return [4 /*yield*/, (0, Utility_1.promptInput)("何本勝負にしますか？")];
                     case 1:
                         rounds = _a.apply(void 0, [_b.sent()]);
                         if (!(Number.isInteger(rounds) && 0 < rounds)) return [3 /*break*/, 2];
@@ -81,17 +81,17 @@ var Janken = /** @class */ (function () {
                         randomSelected = jankenOptions[Math.floor(Math.random() * 3)];
                         result = Janken.judge(userSelected, randomSelected);
                         switch (result) {
-                            case 'win':
+                            case "win":
                                 this.result.win += 1;
-                                resultText = '勝ち';
+                                resultText = "勝ち";
                                 break;
-                            case 'lose':
+                            case "lose":
                                 this.result.lose += 1;
-                                resultText = '負け';
+                                resultText = "負け";
                                 break;
-                            case 'draw':
+                            case "draw":
                                 this.result.draw += 1;
-                                resultText = 'あいこ';
+                                resultText = "あいこ";
                                 break;
                         }
                         (0, Utility_1.printLine)("---\n\u3042\u306A\u305F: ".concat(userSelected, "\n\u76F8\u624B").concat(randomSelected, "\n").concat(resultText, "\n---"));
@@ -120,26 +120,26 @@ var Janken = /** @class */ (function () {
         };
     };
     Janken.judge = function (userSelected, randomSelected) {
-        if (userSelected === 'rock') {
-            if (randomSelected === 'rock')
-                return 'draw';
-            if (randomSelected === 'paper')
-                return 'lose';
-            return 'win';
+        if (userSelected === "rock") {
+            if (randomSelected === "rock")
+                return "draw";
+            if (randomSelected === "paper")
+                return "lose";
+            return "win";
         }
-        else if (userSelected === 'paper') {
-            if (randomSelected === 'rock')
-                return 'win';
-            if (randomSelected === 'paper')
-                return 'draw';
-            return 'lose';
+        else if (userSelected === "paper") {
+            if (randomSelected === "rock")
+                return "win";
+            if (randomSelected === "paper")
+                return "draw";
+            return "lose";
         }
         else {
-            if (randomSelected === 'rock')
-                return 'lose';
-            if (randomSelected === 'paper')
-                return 'win';
-            return 'draw';
+            if (randomSelected === "rock")
+                return "lose";
+            if (randomSelected === "paper")
+                return "win";
+            return "draw";
         }
     };
     return Janken;

@@ -39,10 +39,21 @@ exports.__esModule = true;
 var Utility_1 = require("../Utility/Utility");
 var HitAndBrow = /** @class */ (function () {
     function HitAndBrow() {
-        this.answerSource = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        this.answerSource = [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+        ];
         this.answer = [];
         this.tryCount = 0;
-        this.mode = 'normal';
+        this.mode = "normal";
     }
     HitAndBrow.prototype.setting = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -51,7 +62,10 @@ var HitAndBrow = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _a = this;
-                        return [4 /*yield*/, (0, Utility_1.promptSelect)('モードを入力してください', ['normal', 'hard'])];
+                        return [4 /*yield*/, (0, Utility_1.promptSelect)("モードを入力してください", [
+                                "normal",
+                                "hard",
+                            ])];
                     case 1:
                         _a.mode = _b.sent();
                         answerLength = this.getAnswerLength();
@@ -75,7 +89,7 @@ var HitAndBrow = /** @class */ (function () {
                     case 0: return [4 /*yield*/, (0, Utility_1.promptInput)("\u300C,\u300D\u533A\u5207\u308A\u3067".concat(this.getAnswerLength(), "\u3064\u306E\u6570\u5B57\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"))];
                     case 1:
                         inputString = _a.sent();
-                        inputArr = inputString.split(',');
+                        inputArr = inputString.split(",");
                         if (!!this.validate(inputArr)) return [3 /*break*/, 3];
                         (0, Utility_1.printLine)("---\n\u5165\u529B\u3055\u308C\u305F\u6587\u5B57\u5217\u304C\u4E0D\u9069\u5207\u3067\u3059");
                         return [4 /*yield*/, this.play()];
@@ -110,10 +124,10 @@ var HitAndBrow = /** @class */ (function () {
     HitAndBrow.prototype.validate = function (inputArr) {
         var _this = this;
         var isLengthValid = inputArr.length === this.answer.length;
-        var isAllAnswerSourceOption = inputArr.every(function (value) { return _this.answerSource.includes(value); });
-        var isAllDifferentValues = inputArr.every(function (value, index) {
-            return inputArr.indexOf(value) === index;
+        var isAllAnswerSourceOption = inputArr.every(function (value) {
+            return _this.answerSource.includes(value);
         });
+        var isAllDifferentValues = inputArr.every(function (value, index) { return inputArr.indexOf(value) === index; });
         return isLengthValid && isAllAnswerSourceOption && isAllDifferentValues;
     };
     HitAndBrow.prototype.check = function (input) {
@@ -135,9 +149,9 @@ var HitAndBrow = /** @class */ (function () {
     };
     HitAndBrow.prototype.getAnswerLength = function () {
         switch (this.mode) {
-            case 'normal':
+            case "normal":
                 return 3;
-            case 'hard':
+            case "hard":
                 return 4;
             default:
                 var neverValue = this.mode;

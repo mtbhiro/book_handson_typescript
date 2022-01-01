@@ -40,7 +40,6 @@ var GameProcedure_1 = require("./Game/GameProcedure");
 var HitAndBrow_1 = require("./Game/HitAndBrow");
 var Janken_1 = require("./Game/Janken");
 var Utility_1 = require("./Utility/Utility");
-;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var name, age;
     return __generator(this, function (_a) {
@@ -54,8 +53,8 @@ var Utility_1 = require("./Utility/Utility");
                 age = _a.sent();
                 console.log(age);
                 new GameProcedure_1["default"]({
-                    'hit and blow': new HitAndBrow_1["default"](),
-                    'janken': new Janken_1["default"]()
+                    "hit and blow": new HitAndBrow_1["default"](),
+                    janken: new Janken_1["default"]()
                 }).start();
                 return [2 /*return*/];
         }

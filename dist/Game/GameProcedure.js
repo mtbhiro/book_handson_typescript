@@ -42,7 +42,7 @@ var NextAction_1 = require("../Model/NextAction");
 var GameProcedure = /** @class */ (function () {
     function GameProcedure(gameStore) {
         this.gameStore = gameStore;
-        this.currentGameTitle = '';
+        this.currentGameTitle = "";
         this.currentGame = null;
     }
     GameProcedure.prototype.start = function () {
@@ -67,7 +67,7 @@ var GameProcedure = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _a = this;
-                        return [4 /*yield*/, (0, Utility_1.promptSelect)('ゲームのタイトルを入力してください', GameTitle_1.gameTitles)];
+                        return [4 /*yield*/, (0, Utility_1.promptSelect)("ゲームのタイトルを入力してください", GameTitle_1.gameTitles)];
                     case 1:
                         _a.currentGameTitle = _b.sent();
                         this.currentGame = this.gameStore[this.currentGameTitle];
@@ -83,7 +83,7 @@ var GameProcedure = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (!this.currentGame)
-                            throw new Error('ゲームが選択されていません');
+                            throw new Error("ゲームが選択されていません");
                         (0, Utility_1.printLine)("===\n".concat(this.currentGameTitle, "\u3092\u958B\u59CB\u3057\u307E\u3059\n==="));
                         return [4 /*yield*/, this.currentGame.setting()];
                     case 1:
@@ -92,16 +92,16 @@ var GameProcedure = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         this.currentGame.end();
-                        return [4 /*yield*/, (0, Utility_1.promptSelect)('ゲームを続けますか？', NextAction_1.nextActions)];
+                        return [4 /*yield*/, (0, Utility_1.promptSelect)("ゲームを続けますか？", NextAction_1.nextActions)];
                     case 3:
                         action = _a.sent();
-                        if (!(action === 'play again')) return [3 /*break*/, 5];
+                        if (!(action === "play again")) return [3 /*break*/, 5];
                         return [4 /*yield*/, this.play()];
                     case 4:
                         _a.sent();
                         return [3 /*break*/, 9];
                     case 5:
-                        if (!(action === 'change game')) return [3 /*break*/, 8];
+                        if (!(action === "change game")) return [3 /*break*/, 8];
                         return [4 /*yield*/, this.select()];
                     case 6:
                         _a.sent();
@@ -110,7 +110,7 @@ var GameProcedure = /** @class */ (function () {
                         _a.sent();
                         return [3 /*break*/, 9];
                     case 8:
-                        if (action == 'exit') {
+                        if (action == "exit") {
                             this.end();
                         }
                         else {
@@ -124,7 +124,7 @@ var GameProcedure = /** @class */ (function () {
         });
     };
     GameProcedure.prototype.end = function () {
-        (0, Utility_1.printLine)('ゲームを終了しました');
+        (0, Utility_1.printLine)("ゲームを終了しました");
         process.exit();
     };
     return GameProcedure;

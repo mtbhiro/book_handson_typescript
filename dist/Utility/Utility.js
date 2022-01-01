@@ -39,7 +39,7 @@ exports.__esModule = true;
 exports.readLine = exports.promptSelect = exports.promptInput = exports.printLine = void 0;
 var printLine = function (text, breakLine) {
     if (breakLine === void 0) { breakLine = true; }
-    process.stdout.write(text + (breakLine ? '\n' : ''));
+    process.stdout.write(text + (breakLine ? "\n" : ""));
 };
 exports.printLine = printLine;
 var promptInput = function (text) { return __awaiter(void 0, void 0, void 0, function () {
@@ -58,7 +58,7 @@ var promptSelect = function (text, values) { return __awaiter(void 0, void 0, vo
                 values.forEach(function (value) {
                     (0, exports.printLine)("- ".concat(value));
                 });
-                (0, exports.printLine)('> ', false);
+                (0, exports.printLine)("> ", false);
                 return [4 /*yield*/, (0, exports.readLine)()];
             case 1:
                 input = (_a.sent());
@@ -78,9 +78,7 @@ var readLine = function () { return __awaiter(void 0, void 0, void 0, function (
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, new Promise(function (resolve) {
-                    return process.stdin.once('data', function (data) {
-                        return resolve(data.toString());
-                    });
+                    return process.stdin.once("data", function (data) { return resolve(data.toString()); });
                 })];
             case 1:
                 input = _a.sent();
