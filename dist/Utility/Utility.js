@@ -36,28 +36,56 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var GameProcedure_1 = require("./Game/GameProcedure");
-var HitAndBrow_1 = require("./Game/HitAndBrow");
-var Janken_1 = require("./Game/Janken");
-var Utility_1 = require("./Utility/Utility");
-;
-(function () { return __awaiter(void 0, void 0, void 0, function () {
-    var name, age;
+exports.readLine = exports.promptSelect = exports.promptInput = exports.printLine = void 0;
+var printLine = function (text, breakLine) {
+    if (breakLine === void 0) { breakLine = true; }
+    process.stdout.write(text + (breakLine ? '\n' : ''));
+};
+exports.printLine = printLine;
+var promptInput = function (text) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        (0, exports.printLine)("\n".concat(text, "\n"), false);
+        return [2 /*return*/, (0, exports.readLine)()];
+    });
+}); };
+exports.promptInput = promptInput;
+var promptSelect = function (text, values) { return __awaiter(void 0, void 0, void 0, function () {
+    var input;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, Utility_1.promptInput)("名前を入力してください")];
+            case 0:
+                (0, exports.printLine)("\n".concat(text));
+                values.forEach(function (value) {
+                    (0, exports.printLine)("- ".concat(value));
+                });
+                (0, exports.printLine)('> ', false);
+                return [4 /*yield*/, (0, exports.readLine)()];
             case 1:
-                name = _a.sent();
-                console.log(name);
-                return [4 /*yield*/, (0, Utility_1.promptInput)("年齢を入力してください")];
-            case 2:
-                age = _a.sent();
-                console.log(age);
-                new GameProcedure_1["default"]({
-                    'hit and blow': new HitAndBrow_1["default"](),
-                    'janken': new Janken_1["default"]()
-                }).start();
+                input = (_a.sent());
+                if (values.includes(input)) {
+                    return [2 /*return*/, input];
+                }
+                else {
+                    return [2 /*return*/, (0, exports.promptSelect)(text, values)];
+                }
                 return [2 /*return*/];
         }
     });
-}); })();
+}); };
+exports.promptSelect = promptSelect;
+var readLine = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var input;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, new Promise(function (resolve) {
+                    return process.stdin.once('data', function (data) {
+                        return resolve(data.toString());
+                    });
+                })];
+            case 1:
+                input = _a.sent();
+                return [2 /*return*/, input.trim()];
+        }
+    });
+}); };
+exports.readLine = readLine;
